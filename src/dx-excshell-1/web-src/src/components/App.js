@@ -9,6 +9,7 @@ import { HashRouter as Router, Switch, Route } from 'react-router-dom'
 import SideBar from './SideBar'
 import ActionsForm from './ActionsForm'
 import PdfView from './PdfView'
+import PaperSelect  from './PaperSelect'
 import { Home } from './Home'
 import { About } from './About'
 
@@ -48,7 +49,7 @@ function App (props) {
             <View gridArea='content' padding='size-200'>
               <Switch>
                 <Route exact path='/'>
-                  <Home></Home>
+                  <PaperSelect></PaperSelect>
                 </Route>
                 <Route path='/paper'>
                   <PdfView runtime={props.runtime} ims={props.ims} />
