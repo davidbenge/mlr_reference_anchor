@@ -16,7 +16,6 @@ import { About } from './About'
 function App (props) {
   console.log('runtime object:', props.runtime)
   console.log('ims object:', props.ims)
-  console.log('props:', JSON.stringify(props, null, 2)  )
 
   // use exc runtime event handlers
   // respond to configuration change events (e.g. user switches org)
@@ -52,7 +51,7 @@ function App (props) {
                   <PaperSelect></PaperSelect>
                 </Route>
                 <Route path='/paper'>
-                  <PdfView runtime={props.runtime} ims={props.ims} />
+                  <PdfView runtime={props.runtime} ims={props.ims} pdfServiceClientId={props.pdfServiceClientId} />
                 </Route>
                 <Route path='/about'>
                   <About></About>
