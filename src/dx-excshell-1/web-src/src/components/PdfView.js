@@ -25,6 +25,7 @@ import actionWebInvoke from '../utils'
 
 const PdfView = (props) => {
   const [state, setState] = useState({})
+  const [documentPath, setDocumentPath] = useState('')
   let studyAdobeDCView
 
   const viewerConfig = {
@@ -41,7 +42,7 @@ const PdfView = (props) => {
 
   useEffect(() => {
     /* Initialize the AdobeDC View object */
-    const viewSDKClient = new ViewSDKClient();
+    const viewSDKClient = new ViewSDKClient(viewerInitConfig);
     viewSDKClient.ready().then(() => {
         /* Invoke file preview */
         viewSDKClient.previewFile("adobe-dc-view", {
@@ -63,32 +64,6 @@ const PdfView = (props) => {
   )
 
   // Methods
-  function previewPdf(url,fileName, viewerConfig){
-    /* Invoke the file preview API on Adobe DC View object */
-    studyAdobeDCView.previewFile({
-        /* Pass information on how to access the file */
-        content: {
-            /* Location of file where it is hosted */
-            location: {
-                url: "https://documentservices.adobe.com/view-sdk-demo/PDFs/Bodea Brochure.pdf",
-                /*
-                If the file URL requires some additional headers, then it can be passed as follows:-
-                header: [
-                    {
-                        key: "<HEADER_KEY>",
-                        value: "<HEADER_VALUE>",
-                    }
-                ]
-                */
-            },
-        },
-        /* Pass meta data of file */
-        metaData: {
-            /* file name */
-            fileName: "Bodea Brochure.pdf"
-        }
-    }, viewerConfig);
-}
 
   // invokes a the selected backend actions with input headers and params
   
@@ -96,7 +71,8 @@ const PdfView = (props) => {
 
 PdfView.propTypes = {
   runtime: PropTypes.any,
-  ims: PropTypes.any
+  ims: PropTypes.any,
+  pdfServiceClientId: PropTypes.any
 }
 
 export default PdfView

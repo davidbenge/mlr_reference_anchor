@@ -10,8 +10,9 @@ written permission of Adobe.
 */
 
 class ViewSDKClient {
-    constructor() {
-        this.clientId = `${process.env.PDF_EMBED_CLIENT_ID}`;
+    constructor(viewerConfig) {
+        console.log('ViewSDKClient constructor',viewerConfig)    
+        this.clientId = `${viewerConfig.pdfServiceClientId}`;
 
         this.readyPromise = new Promise((resolve) => {
             if (window.AdobeDC) {
@@ -33,8 +34,9 @@ class ViewSDKClient {
     previewFile(divId, viewerConfig) {
         const config = {
             /* Pass your registered client id */
-            clientId: this.clientId,
+            clientId: `${this.clientId}`,
         };
+        console.log('ViewSDKClient previewFile config',config)
         if (divId) { /* Optional only for Light Box embed mode */
             /* Pass the div id in which PDF should be rendered */
             config.divId = divId;
