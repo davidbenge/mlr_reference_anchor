@@ -34,7 +34,7 @@ const PdfView = (props) => {
   
   const viewerInitConfig = {
       /* Pass your registered client id */
-      clientId: "0f15e77ae60a4f3f87838d1133e72dd9",
+      clientId: `${process.env.AIO_ims_contexts_Project__1689483174495K_client__id}`,
       /* Pass the div id in which PDF should be rendered */
       divId: "adobe-dc-view",
   }

@@ -15,16 +15,17 @@ import {
   ProgressCircle,
   Item,
   Text,
-  View
+  View,
+  ListView,
+  ActionMenu
 } from '@adobe/react-spectrum'
 import Function from '@spectrum-icons/workflow/Function'
 
 import allActions from '../config.json'
 import actionWebInvoke from '../utils'
 
-import File from '@spectrum-icons/illustrations/File';
-import Folder from '@spectrum-icons/illustrations/Folder';
-import {Item, ListView} from '@adobe/react-spectrum'
+import File from '@spectrum-icons/illustrations/File'
+import Folder from '@spectrum-icons/illustrations/Folder'
 
 const PaperSelect = (props) => {
   const [state, setState] = useState({})
@@ -38,74 +39,13 @@ const PaperSelect = (props) => {
       <Heading level={1}>Reference Paper Selection</Heading>
       
       <ListView
-        selectionMode="multiple"
-        maxWidth="size-6000"
-        aria-label="ListView example with complex items"
-        onAction={(key) => alert(`Triggering action on item ${key}`)}
+        selectionMode="single"
+        selectionStyle="highlight"
+        aria-label="ListView with single selection"
       >
-        <Item key="1" textValue="Utilities" hasChildItems>
-          <Folder />
-          <Text>Utilities</Text>
-          <Text slot="description">16 items</Text>
-          <ActionMenu>
-            <Item key="edit" textValue="Edit">
-              <Edit />
-              <Text>Edit</Text>
-            </Item>
-            <Item key="delete" textValue="Delete">
-              <Delete />
-              <Text>Delete</Text>
-            </Item>
-          </ActionMenu>
-        </Item>
-        <Item key="2" textValue="Glasses Dog">
-          <Image
-            src="https://random.dog/1a0535a6-ca89-4059-9b3a-04a554c0587b.jpg"
-            alt="Shiba Inu with glasses"
-          />
-          <Text>Glasses Dog</Text>
-          <Text slot="description">JPG</Text>
-          <ActionMenu>
-            <Item key="edit" textValue="Edit">
-              <Edit />
-              <Text>Edit</Text>
-            </Item>
-            <Item key="delete" textValue="Delete">
-              <Delete />
-              <Text>Delete</Text>
-            </Item>
-          </ActionMenu>
-        </Item>
-        <Item key="3" textValue="readme">
-          <File />
-          <Text>readme.txt</Text>
-          <Text slot="description">TXT</Text>
-          <ActionMenu>
-            <Item key="edit" textValue="Edit">
-              <Edit />
-              <Text>Edit</Text>
-            </Item>
-            <Item key="delete" textValue="Delete">
-              <Delete />
-              <Text>Delete</Text>
-            </Item>
-          </ActionMenu>
-        </Item>
-        <Item key="4" textValue="Onboarding">
-          <File />
-          <Text>Onboarding</Text>
-          <Text slot="description">PDF</Text>
-          <ActionMenu>
-            <Item key="edit" textValue="Edit">
-              <Edit />
-              <Text>Edit</Text>
-            </Item>
-            <Item key="delete" textValue="Delete">
-              <Delete />
-              <Text>Delete</Text>
-            </Item>
-          </ActionMenu>
-        </Item>
+        <Item>Research paper 1</Item>
+        <Item>Research paper 2</Item>
+        <Item>Research paper 3</Item>
       </ListView>
     </View>
   )
