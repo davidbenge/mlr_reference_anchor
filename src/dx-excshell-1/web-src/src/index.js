@@ -12,6 +12,10 @@ import App from './components/App'
 import './index.css'
 
 window.React = require('react')
+
+const pdfServiceClientId = process.env.AIO_ims_contexts_Project__1689483174495K_client__id
+console.log('pdfServiceClientId:', pdfServiceClientId)
+
 /* Here you can bootstrap your application and configure the integration with the Adobe Experience Cloud Shell */
 try {
   // attempt to load the Experience Cloud Runtime
@@ -31,7 +35,7 @@ function bootstrapRaw () {
 
   // render the actual react application and pass along the runtime object to make it available to the App
   ReactDOM.render(
-    <App runtime={mockRuntime} ims={mockIms} />,
+    <App runtime={mockRuntime} ims={mockIms} pdfServiceClientId={pdfServiceClientId}/>,
     document.getElementById('root')
   )
 }
@@ -56,9 +60,10 @@ function bootstrapInExcShell () {
       org: imsOrg,
       token: imsToken
     }
+
     // render the actual react application and pass along the runtime and ims objects to make it available to the App
     ReactDOM.render(
-      <App runtime={runtime} ims={ims} />,
+      <App runtime={runtime} ims={ims} pdfServiceClientId={pdfServiceClientId} />,
       document.getElementById('root')
     )
   })
