@@ -32,6 +32,8 @@ class ViewSDKClient {
     }
 
     previewFile(divId, viewerConfig) {
+        console.log('ViewSDKClient previewFile',JSON.stringify(this))   
+        if(typeof this.clientId === undefined){throw new Error('clientId is undefined')}
         const config = {
             /* Pass your registered client id */
             clientId: `${this.clientId}`,

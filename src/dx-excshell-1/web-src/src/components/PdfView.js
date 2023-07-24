@@ -41,8 +41,10 @@ const PdfView = (props) => {
   }
 
   useEffect(() => {
+    console.log('props',JSON.stringify(props));
     /* Initialize the AdobeDC View object */
     const viewSDKClient = new ViewSDKClient(viewerInitConfig);
+    console.log('viewSDKClient',JSON.stringify(viewSDKClient));
     viewSDKClient.ready().then(() => {
         /* Invoke file preview */
         viewSDKClient.previewFile("adobe-dc-view", {

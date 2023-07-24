@@ -48,7 +48,7 @@ function App (props) {
             <View gridArea='content' padding='size-200'>
               <Switch>
                 <Route exact path='/'>
-                  <PaperSelect></PaperSelect>
+                  <PaperSelect aemAssetsHost={props.aemAssetsHost} ims={props.ims}></PaperSelect>
                 </Route>
                 <Route path='/paper'>
                   <PdfView runtime={props.runtime} ims={props.ims} pdfServiceClientId={props.pdfServiceClientId} />

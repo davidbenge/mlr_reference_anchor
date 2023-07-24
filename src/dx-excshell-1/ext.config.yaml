@@ -16,6 +16,7 @@ runtimeManifest:
           inputs:
             LOG_LEVEL: debug
             PDF_EMBED_CLIENT_ID: $PDF_EMBED_CLIENT_ID
+            AEM_ASSETS_HOST: $AEM_ASSETS_HOST
           annotations:
             require-adobe-auth: true
             final: true
