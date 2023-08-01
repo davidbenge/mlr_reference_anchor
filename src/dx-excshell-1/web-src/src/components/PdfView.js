@@ -19,7 +19,8 @@ import {
   View
 } from '@adobe/react-spectrum'
 import Function from '@spectrum-icons/workflow/Function'
-
+import { AssetSelectorWithAuthFlow, registerAssetsSelectorsAuthService } from '@assets/selectors'
+//import { AssetSelectorWithAuthFlow, registerAssetsSelectorsAuthService } from 'https://experience.adobe.com/solutions/CQ-assets-selectors/static-assets/resources/@assets/selectors/index.js'
 import allActions from '../config.json'
 import actionWebInvoke from '../utils'
 
@@ -44,8 +45,8 @@ const PdfView = (props) => {
     console.log('props',JSON.stringify(props));
     /* Initialize the AdobeDC View object */
     const viewSDKClient = new ViewSDKClient(viewerInitConfig);
-    console.log('viewSDKClient',JSON.stringify(viewSDKClient));
-    viewSDKClient.ready().then(() => {
+    viewSDKClient.ready().then((vsdk) => {
+        console.log('vsdk',JSON.stringify(vsdk));
         /* Invoke file preview */
         viewSDKClient.previewFile("adobe-dc-view", {
             /* Control the viewer customization. */

@@ -14,8 +14,8 @@ import { Home } from './Home'
 import { About } from './About'
 
 function App (props) {
-  console.log('runtime object:', props.runtime)
-  console.log('ims object:', props.ims)
+  console.log('runtime object:', JSON.stringify(props.runtime))
+  console.log('ims object:', JSON.stringify(props.ims_))
 
   // use exc runtime event handlers
   // respond to configuration change events (e.g. user switches org)

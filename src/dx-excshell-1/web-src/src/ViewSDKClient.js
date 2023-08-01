@@ -11,8 +11,9 @@ written permission of Adobe.
 
 class ViewSDKClient {
     constructor(viewerConfig) {
-        console.log('ViewSDKClient constructor',viewerConfig)    
-        this.clientId = `${viewerConfig.pdfServiceClientId}`;
+        //console.log('ViewSDKClient constructor',viewerConfig)    
+        this.clientId = `${viewerConfig.clientId}`;
+        this.adobeDCView = undefined;
 
         this.readyPromise = new Promise((resolve) => {
             if (window.AdobeDC) {
@@ -24,7 +25,14 @@ class ViewSDKClient {
                 });
             }
         });
-        this.adobeDCView = undefined;
+    }
+
+    get clientId() {
+        return this._clientId 
+    }
+
+    set clientId(clientId) {
+        this._clientId = clientId;
     }
 
     ready() {
@@ -32,7 +40,7 @@ class ViewSDKClient {
     }
 
     previewFile(divId, viewerConfig) {
-        console.log('ViewSDKClient previewFile',JSON.stringify(this))   
+        //console.log('ViewSDKClient previewFile',JSON.stringify(this))   
         if(typeof this.clientId === undefined){throw new Error('clientId is undefined')}
         const config = {
             /* Pass your registered client id */

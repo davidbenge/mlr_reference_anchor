@@ -7,7 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
   <meta name="theme-color" content="#333333">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' http://www.google.com https://documentservices.adobe.com">
   <title>mlrreferenceanchor</title>
 </head>
 <body>
@@ -15,5 +14,12 @@
   <div id="root"></div>
   <script src="./src/index.js" async="true" type="module"></script>
   <script src="https://documentservices.adobe.com/view-sdk/viewer.js"></script>
+  <script type="importmap">
+    {
+      "imports": {
+        "@assets/selectors": "https://experience.adobe.com/solutions/CQ-assets-selectors/static-assets/resources/@assets/selectors/index.js"
+      }
+    }
+  </script>
 </body>
 </html>

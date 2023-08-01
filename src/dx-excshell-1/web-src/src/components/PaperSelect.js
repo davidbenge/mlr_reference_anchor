@@ -29,9 +29,14 @@ import Folder from '@spectrum-icons/illustrations/Folder'
 
 const PaperSelect = (props) => {
   const [state, setState] = useState({})
+  const imsAuthProps = {
+    imsClientId: 'aem-assets-frontend-1', 
+    imsScope: "openid,read_organizations,additional_info.projectedProductContext",
+    redirectUrl: window.location.href,
+  }
 
   useEffect(() => {
-    
+    //registerAssetsSelectorsAuthService(imsAuthProps);
   })
 
   return (
